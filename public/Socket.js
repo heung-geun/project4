@@ -11,6 +11,12 @@ socket.on('response', (data) => {
   console.log(data);
 });
 
+// 서버에서 읽은 assets 데이터를 받아옴
+let gameAsset = null;
+socket.on('gameAssets', (data) => {
+  gameAsset = data;
+});
+
 socket.on('connection', (data) => {
   console.log('connection: ', data);
   userId = data.uuid;
@@ -25,4 +31,4 @@ const sendEvent = (handlerId, payload) => {
   });
 };
 
-export { sendEvent };
+export { sendEvent, gameAsset };
