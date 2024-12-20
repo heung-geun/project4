@@ -4,7 +4,7 @@ import { clearStage } from '../models/stage.model.js';
 
 export const gameStart = (uuid, payload) => {
   const { stages } = getGameAssets();
-
+  // console.log(stages.data[0].id);
   clearStage(uuid);
   // stages 배열에서 0번째 = 첫번째 스테이지
   setStage(uuid, stages.data[0].id, payload.timestamp);
